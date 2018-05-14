@@ -1,0 +1,11 @@
+import { BatchesI, CourseI } from '../model/entityI';
+export declare function getCourses(): Promise<CourseI[] | null>;
+export declare function addCourses(newCourse: CourseI): Promise<CourseI | null>;
+export declare function getCoursesById(id: number): Promise<CourseI | null>;
+export declare function getBatches(id: number): Promise<BatchesI[] | null>;
+export declare function addBatch(batchId: number, newBatch: BatchesI): Promise<BatchesI | null>;
+export declare function getBatcheById(id: number, bid: number): Promise<BatchesI | null>;
+export declare function getLectures(id: number, bid: number): Promise<BatchesI | null>;
+export declare function getLectureById(id: number, bid: number, lectureId: number): Promise<BatchesI | null>;
+export declare function getBatchTeachers(id: number, bid: number): Promise<BatchesI | null>;
+export declare function getBatchStudents(cid: number, bid: number): Promise<BatchesI[] | null>;

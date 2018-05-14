@@ -1,0 +1,29 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = __importDefault(require("express"));
+var entity_1 = require("./model/entity");
+var course_1 = __importDefault(require("./routes/course"));
+var student_1 = __importDefault(require("./routes/student"));
+var teacher_1 = __importDefault(require("./routes/teacher"));
+var subject_1 = __importDefault(require("./routes/subject"));
+var app = express_1.default();
+app.use(express_1.default.json());
+app.use(express_1.default.urlencoded({ extended: true }));
+var route = {
+    course: course_1.default,
+    student: student_1.default,
+    teacher: teacher_1.default,
+    subject: subject_1.default
+};
+app.use('/courses', route.course);
+app.use('/students', route.student);
+app.use('/teachers', route.teacher);
+app.use('/subjects', route.subject);
+// app.use('/', express.static(path.join(__dirname, 'public')))
+app.listen(4444, function () {
+    entity_1.db.sync();
+});
+//# sourceMappingURL=server.js.map
