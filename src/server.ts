@@ -23,7 +23,7 @@ app.use('/students', route.student)
 app.use('/teachers', route.teacher)
 app.use('/subjects', route.subject)
 
-// app.use('/', express.static(path.join(__dirname, 'public')))
+app.use('/', express.static(path.join(__dirname, 'public')))
 
 
 
