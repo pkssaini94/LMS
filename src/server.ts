@@ -18,14 +18,12 @@ const route = {
     subject: SubjectRoute
 }
 
+app.use('/', express.static(path.join(__dirname, 'public')))
+
 app.use('/courses', route.course)
 app.use('/students', route.student)
 app.use('/teachers', route.teacher)
 app.use('/subjects', route.subject)
-
-app.use('/', express.static(path.join(__dirname, 'public')))
-
-
 
 app.listen(process.env.PORT || 4444, () => {
     db.sync()
