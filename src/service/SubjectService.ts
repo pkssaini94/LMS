@@ -4,7 +4,13 @@ import { resolve } from 'bluebird';
 import { getCoursesById } from './CourseService'
 
 export async function getSubjects(): Promise<SubjectI[] | null> {
-    return await Subject.findAll();
+    return await Subject.findAll({
+        attributes: ['id', 'name'],
+        include: [{
+            model: Course,
+            attributes: ['id', 'name']
+        }],
+    });
 }
 
 

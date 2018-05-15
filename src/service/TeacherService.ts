@@ -4,7 +4,13 @@ import { getSubjectById } from './SubjectService';
 import { resolve } from 'bluebird';
 
 export async function getTeachers(): Promise<TeacherI[] | null> {
-    return await Teacher.findAll();
+    return await Teacher.findAll({
+        attributes: ['id', 'name'],
+        include: [{
+            model: Subject,
+            attributes: ['id', 'name']
+        }],
+    });
 }
 
 
