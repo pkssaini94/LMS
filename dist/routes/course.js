@@ -20,6 +20,13 @@ route.post('/', function (req, res) {
         res.status(200).send(course);
     });
 });
+route.get('/allBatch', function (req, res) {
+    console.log("dxhkjhadxbakxcbakxb");
+    CourseService_1.getBatch().then(function (batch) {
+        console.log("fhdfhjdi" + batch);
+        res.status(200).send(batch);
+    });
+});
 route.get('/:id', function (req, res) {
     CourseService_1.getCoursesById(req.params.id).then(function (courses) {
         res.status(200).send(courses);

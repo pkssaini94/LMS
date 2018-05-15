@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { getCourses, addCourses, getCoursesById, getBatches, addBatch, getBatcheById, getLectures, getLectureById, getBatchTeachers, getBatchStudents } from '../service/CourseService'
+import { getCourses, addCourses, getCoursesById, getBatches, addBatch, getBatcheById, getLectures, getLectureById, getBatchTeachers, getBatchStudents, getBatch } from '../service/CourseService'
 import { CourseI, BatchesI } from '../model/entityI';
 
 const route: express.Router = express.Router();
@@ -19,6 +19,15 @@ route.post('/', (req: Request, res: Response) => {
     }
     addCourses(newCourse).then((course: CourseI | null) => {
         res.status(200).send(course);
+    })
+});
+
+route.get('/allBatch', (req: Request, res: Response) => {
+    console.log("dxhkjhadxbakxcbakxb");
+
+    getBatch().then((batch: BatchesI[] | null) => {
+        console.log("fhdfhjdi"+batch);
+        res.status(200).send(batch);
     })
 });
 

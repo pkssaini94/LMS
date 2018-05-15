@@ -28,6 +28,16 @@ export async function getBatches(id: number): Promise<BatchesI[] | null> {
     })
 }
 
+export async function getBatch(): Promise<BatchesI[] | null> {
+    return await Batch.findAll({
+        attributes: ['id', 'name'],
+        include: [{
+            model: Course,
+            attributes: ['id', 'name']
+        }],
+    })
+}
+
 export function addBatch(batchId: number, newBatch: BatchesI): Promise<BatchesI | null> {
     return new Promise<BatchesI | null>((resolve, reject) => {
         Batch.create({
