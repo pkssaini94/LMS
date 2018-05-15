@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc",
     "prestart": "npm run build",
+    "postinstall": "npm run build",
     "start": "node dist/server.js"
   },
   "author": "",
@@ -19,7 +20,8 @@
     "passport-local": "^1.0.0",
     "sequelize": "^4.37.6",
     "core-js": "^2.5.5",
-    "typescript": "^2.8.3"
+    "typescript": "^2.8.3",
+    "sqlite3": "^4.0.0"
   },
   "devDependencies": {
     "@types/npm": "^2.0.29",

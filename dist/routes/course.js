@@ -54,15 +54,15 @@ route.get('/:id/batches/:bid/lectures/:lid', function (req, res) {
         res.status(200).send(batch);
     });
 });
-route.get('/:id/batches/:bid/teachers', function (req, res) {
-    CourseService_1.getBatchTeachers(req.params.id, req.params.bid).then(function (batch) {
-        res.status(200).send(batch.lectures);
-    });
-});
 route.get('/:id/batches/:bid/students', function (req, res) {
     CourseService_1.getBatchStudents(req.params.id, req.params.bid).then(function (students) {
         res.status(200).send(students);
     });
 });
+// route.get('/:id/batches/:bid/teachers', (req: Request, res: Response) => {
+//     getBatchTeachers(req.params.id, req.params.bid).then((batch: any) => {
+//         res.status(200).send(batch.lectures);
+//     })
+// });
 exports.default = route;
 //# sourceMappingURL=course.js.map

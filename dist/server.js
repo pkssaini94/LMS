@@ -23,7 +23,7 @@ app.use('/students', route.student);
 app.use('/teachers', route.teacher);
 app.use('/subjects', route.subject);
 // app.use('/', express.static(path.join(__dirname, 'public')))
-app.listen(4444, function () {
+app.listen(process.env.PORT || 4444, function () {
     entity_1.db.sync();
 });
 //# sourceMappingURL=server.js.map

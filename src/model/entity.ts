@@ -8,9 +8,9 @@ declare global {
     };
 }
 
-export const db = new Sequelize('learningmanagementsolution', 'root', 'root', {
-    host: 'localhost',
-    dialect: 'mysql',
+export const db = new Sequelize('storage', '', '', {
+    dialect: 'sqlite',
+    storage: './storage.db'
 })
 
 const courseAttr: SequelizeAttributes<CourseI> = {

@@ -4,9 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var sequelize_1 = __importDefault(require("sequelize"));
-exports.db = new sequelize_1.default('learningmanagementsolution', 'root', 'root', {
-    host: 'localhost',
-    dialect: 'mysql',
+exports.db = new sequelize_1.default('storage', '', '', {
+    dialect: 'sqlite',
+    storage: './storage.db'
 });
 var courseAttr = {
     id: { type: sequelize_1.default.INTEGER, autoIncrement: true, primaryKey: true, },
