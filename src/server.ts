@@ -18,7 +18,7 @@ const route = {
     subject: SubjectRoute
 }
 
-app.use('/', express.static(path.join(__dirname, 'public')))
+app.use('/', express.static(path.join(__dirname, '../public')))
 
 app.use('/courses', route.course)
 app.use('/students', route.student)
