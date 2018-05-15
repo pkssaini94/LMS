@@ -5,6 +5,7 @@ import CourseRoute from './routes/course';
 import StudentRoute from './routes/student';
 import TeacherRoute from './routes/teacher';
 import SubjectRoute from './routes/subject';
+var cors = require('cors')
 
 const app = express()
 
@@ -17,6 +18,8 @@ const route = {
     teacher: TeacherRoute,
     subject: SubjectRoute
 }
+
+app.use(cors())
 
 app.use('/', express.static(path.join(__dirname, '../public')))
 
