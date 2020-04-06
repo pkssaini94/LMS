@@ -24,7 +24,7 @@ route.post('/', (req: Request, res: Response) => {
 })
 
 route.get('/:id', (req: Request, res: Response) => {
-    let id = req.params.id;
+    let id = Number(req.params.id);
     getStudentById(id).then((student: StudentI | null) => {
         res.status(200).json(student);
     })
@@ -32,7 +32,8 @@ route.get('/:id', (req: Request, res: Response) => {
 
 
 route.delete('/:id', (req: Request, res: Response) => {
-    deleteUserById(req.params.id).then((result: number | null) => {
+    let id = Number(req.params.id);
+    deleteUserById(id).then((result: number | null) => {
         res.status(200).json({
             success: true,
             id: result
@@ -41,13 +42,14 @@ route.delete('/:id', (req: Request, res: Response) => {
 })
 
 route.put('/:id', (req: Request, res: Response) => {
-    updateStudent(req.params.id, req.body.name).then((result) => {
+    let id = Number(req.params.id);
+    updateStudent(id, req.body.name).then((result: any) => {
         res.status(200).json(result);
     })
 })
 
 route.get("/:id/batches", (req: Request, res: Response) => {
-    let id = req.params.id;
+    let id = Number(req.params.id);
     getStudentBatches(id).then((student: StudentI[] | null) => {
         res.status(200).json(student);
     })
@@ -55,8 +57,8 @@ route.get("/:id/batches", (req: Request, res: Response) => {
 
 
 route.post("/:id/courses/:cid/batches/:bid", (req: Request, res: Response) => {
-    getBatcheById(req.params.cid, req.params.bid).then((batch: BatchesI | null) => {
-        getStudentById(req.params.id).then((student: StudentI | null) => {
+    getBatcheById(Number(req.params.cid), Number(req.params.bid)).then((batch: BatchesI | null) => {
+        getStudentById(Number(req.params.id)).then((student: StudentI | null) => {
             addStudentToBatch(student, batch).then((result: any) => {
                 res.json(result);
             })

@@ -24,22 +24,22 @@ route.post('/', (req: Request, res: Response) => {
 });
 
 route.get('/:id', (req: Request, res: Response) => {
-
-    getTeacherById(req.params.id).then((teacher: TeacherI | null) => {
+    let id = Number(req.params.id);
+    getTeacherById(id).then((teacher: TeacherI | null) => {
         res.status(200).send(teacher);
     })
 });
 
 route.put('/:id', (req: Request, res: Response) => {
-
-    updateTeacherById(req.params.id, req.body.name).then((teacher: TeacherI | null) => {
+    let id = Number(req.params.id);
+    updateTeacherById(id, req.body.name).then((teacher: TeacherI | null) => {
         res.status(200).send(teacher);
     })
 });
 
 route.delete('/:id', (req: Request, res: Response) => {
-
-    deleteTeacherById(req.params.id).then((result: number | null) => {
+    let id = Number(req.params.id);
+    deleteTeacherById(id).then((result: number | null) => {
         res.status(200).send({
             success: true,
             id: result

@@ -24,7 +24,7 @@ route.post('/', (req: Request, res: Response) => {
 
 route.get('/:id', (req: Request, res: Response) => {
 
-    getSubjectById(req.params.id).then((subjects: SubjectI | null) => {
+    getSubjectById(Number(req.params.id)).then((subjects: SubjectI | null) => {
         res.status(200).send(subjects);
     })
 });

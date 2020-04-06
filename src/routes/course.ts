@@ -26,21 +26,21 @@ route.get('/allBatch', (req: Request, res: Response) => {
     console.log("dxhkjhadxbakxcbakxb");
 
     getBatch().then((batch: BatchesI[] | null) => {
-        console.log("fhdfhjdi"+batch);
+        console.log("fhdfhjdi" + batch);
         res.status(200).send(batch);
     })
 });
 
 route.get('/:id', (req: Request, res: Response) => {
 
-    getCoursesById(req.params.id).then((courses: CourseI | null) => {
+    getCoursesById(Number(req.params.id)).then((courses: CourseI | null) => {
         res.status(200).send(courses);
     })
 });
 
 route.get('/:id/batches', (req: Request, res: Response) => {
 
-    getBatches(req.params.id).then((batch: BatchesI[] | null) => {
+    getBatches(Number(req.params.id)).then((batch: BatchesI[] | null) => {
         res.status(200).send(batch);
     })
 });
@@ -50,35 +50,35 @@ route.post('/:id/batches', (req: Request, res: Response) => {
         id: 0,
         name: req.body.name
     }
-    addBatch(req.params.id, newBatch).then((batch: BatchesI | null) => {
+    addBatch(Number(req.params.id), newBatch).then((batch: BatchesI | null) => {
         res.status(200).send(batch);
     })
 });
 
 route.get('/:id/batches/:bid', (req: Request, res: Response) => {
 
-    getBatcheById(req.params.id, req.params.bid).then((batch: BatchesI | null) => {
+    getBatcheById(Number(req.params.id), Number(req.params.bid)).then((batch: BatchesI | null) => {
         res.status(200).send(batch);
     })
 });
 
 route.get('/:id/batches/:bid/lectures', (req: Request, res: Response) => {
 
-    getLectures(req.params.id, req.params.bid).then((batch: BatchesI | null) => {
+    getLectures(Number(req.params.id), Number(req.params.bid)).then((batch: BatchesI | null) => {
         res.status(200).send(batch);
     })
 });
 
 route.get('/:id/batches/:bid/lectures/:lid', (req: Request, res: Response) => {
 
-    getLectureById(req.params.id, req.params.bid, req.params.lid).then((batch: BatchesI | null) => {
+    getLectureById(Number(req.params.id), Number(req.params.bid), Number(req.params.lid)).then((batch: BatchesI | null) => {
         res.status(200).send(batch);
     })
 });
 
 route.get('/:id/batches/:bid/students', (req: Request, res: Response) => {
 
-    getBatchStudents(req.params.id, req.params.bid).then((students: BatchesI[] | null) => {
+    getBatchStudents(Number(req.params.id), Number(req.params.bid)).then((students: BatchesI[] | null) => {
         res.status(200).send(students);
     })
 });
