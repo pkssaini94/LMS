@@ -28,12 +28,12 @@ route.get('/allBatch', function (req, res) {
     });
 });
 route.get('/:id', function (req, res) {
-    CourseService_1.getCoursesById(req.params.id).then(function (courses) {
+    CourseService_1.getCoursesById(Number(req.params.id)).then(function (courses) {
         res.status(200).send(courses);
     });
 });
 route.get('/:id/batches', function (req, res) {
-    CourseService_1.getBatches(req.params.id).then(function (batch) {
+    CourseService_1.getBatches(Number(req.params.id)).then(function (batch) {
         res.status(200).send(batch);
     });
 });
@@ -42,27 +42,27 @@ route.post('/:id/batches', function (req, res) {
         id: 0,
         name: req.body.name
     };
-    CourseService_1.addBatch(req.params.id, newBatch).then(function (batch) {
+    CourseService_1.addBatch(Number(req.params.id), newBatch).then(function (batch) {
         res.status(200).send(batch);
     });
 });
 route.get('/:id/batches/:bid', function (req, res) {
-    CourseService_1.getBatcheById(req.params.id, req.params.bid).then(function (batch) {
+    CourseService_1.getBatcheById(Number(req.params.id), Number(req.params.bid)).then(function (batch) {
         res.status(200).send(batch);
     });
 });
 route.get('/:id/batches/:bid/lectures', function (req, res) {
-    CourseService_1.getLectures(req.params.id, req.params.bid).then(function (batch) {
+    CourseService_1.getLectures(Number(req.params.id), Number(req.params.bid)).then(function (batch) {
         res.status(200).send(batch);
     });
 });
 route.get('/:id/batches/:bid/lectures/:lid', function (req, res) {
-    CourseService_1.getLectureById(req.params.id, req.params.bid, req.params.lid).then(function (batch) {
+    CourseService_1.getLectureById(Number(req.params.id), Number(req.params.bid), Number(req.params.lid)).then(function (batch) {
         res.status(200).send(batch);
     });
 });
 route.get('/:id/batches/:bid/students', function (req, res) {
-    CourseService_1.getBatchStudents(req.params.id, req.params.bid).then(function (students) {
+    CourseService_1.getBatchStudents(Number(req.params.id), Number(req.params.bid)).then(function (students) {
         res.status(200).send(students);
     });
 });

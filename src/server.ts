@@ -7,6 +7,10 @@ import TeacherRoute from './routes/teacher';
 import SubjectRoute from './routes/subject';
 var cors = require('cors')
 
+const PORT = process.env.PORT || 3000;
+const CONSUL_URL = process.env.CONSUL_URL || 'localhost';
+
+
 const app = express()
 
 app.use(express.json())
@@ -28,6 +32,6 @@ app.use('/students', route.student)
 app.use('/teachers', route.teacher)
 app.use('/subjects', route.subject)
 
-app.listen(process.env.PORT || 4444, () => {
+app.listen(PORT, () => {
     db.sync()
 });

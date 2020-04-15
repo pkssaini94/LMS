@@ -21,7 +21,7 @@ route.post('/', function (req, res) {
     });
 });
 route.get('/:id', function (req, res) {
-    SubjectService_1.getSubjectById(req.params.id).then(function (subjects) {
+    SubjectService_1.getSubjectById(Number(req.params.id)).then(function (subjects) {
         res.status(200).send(subjects);
     });
 });

@@ -21,17 +21,20 @@ route.post('/', function (req, res) {
     });
 });
 route.get('/:id', function (req, res) {
-    TeacherService_1.getTeacherById(req.params.id).then(function (teacher) {
+    var id = Number(req.params.id);
+    TeacherService_1.getTeacherById(id).then(function (teacher) {
         res.status(200).send(teacher);
     });
 });
 route.put('/:id', function (req, res) {
-    TeacherService_1.updateTeacherById(req.params.id, req.body.name).then(function (teacher) {
+    var id = Number(req.params.id);
+    TeacherService_1.updateTeacherById(id, req.body.name).then(function (teacher) {
         res.status(200).send(teacher);
     });
 });
 route.delete('/:id', function (req, res) {
-    TeacherService_1.deleteTeacherById(req.params.id).then(function (result) {
+    var id = Number(req.params.id);
+    TeacherService_1.deleteTeacherById(id).then(function (result) {
         res.status(200).send({
             success: true,
             id: result

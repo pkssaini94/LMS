@@ -21,13 +21,14 @@ route.post('/', function (req, res) {
     });
 });
 route.get('/:id', function (req, res) {
-    var id = req.params.id;
+    var id = Number(req.params.id);
     StudentService_1.getStudentById(id).then(function (student) {
         res.status(200).json(student);
     });
 });
 route.delete('/:id', function (req, res) {
-    StudentService_1.deleteUserById(req.params.id).then(function (result) {
+    var id = Number(req.params.id);
+    StudentService_1.deleteUserById(id).then(function (result) {
         res.status(200).json({
             success: true,
             id: result
@@ -35,19 +36,20 @@ route.delete('/:id', function (req, res) {
     });
 });
 route.put('/:id', function (req, res) {
-    StudentService_1.updateStudent(req.params.id, req.body.name).then(function (result) {
+    var id = Number(req.params.id);
+    StudentService_1.updateStudent(id, req.body.name).then(function (result) {
         res.status(200).json(result);
     });
 });
 route.get("/:id/batches", function (req, res) {
-    var id = req.params.id;
+    var id = Number(req.params.id);
     StudentService_1.getStudentBatches(id).then(function (student) {
         res.status(200).json(student);
     });
 });
 route.post("/:id/courses/:cid/batches/:bid", function (req, res) {
-    CourseService_1.getBatcheById(req.params.cid, req.params.bid).then(function (batch) {
-        StudentService_1.getStudentById(req.params.id).then(function (student) {
+    CourseService_1.getBatcheById(Number(req.params.cid), Number(req.params.bid)).then(function (batch) {
+        StudentService_1.getStudentById(Number(req.params.id)).then(function (student) {
             StudentService_1.addStudentToBatch(student, batch).then(function (result) {
                 res.json(result);
             });
