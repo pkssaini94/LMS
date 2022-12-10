@@ -11,7 +11,7 @@
   "dependencies": {
     "core-js": "^2.6.11",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-fileupload": "^0.4.0",
     "express-session": "^1.17.0",
     "mysql2": "^1.7.0",
